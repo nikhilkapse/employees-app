@@ -1,0 +1,36 @@
+<h4>
+  Edit Employee
+</h4>
+
+<form  class="form-cntnr" [formGroup]="editEmployeeForm" (ngSubmit)="editEmployee()">
+  <div class="form-input">
+    <label>Id</label>
+    <input type="text"  [formControl]="id" readonly>
+  </div>
+  <div class="form-input">
+    <label>Name</label>
+    <input type="text"  [formControl]="name">
+  </div>
+  <div class="form-input">
+    <label>Phone</label>
+    <input type="text" maxlength="10" [formControl]="phone" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+  </div>
+  <div class="form-input">
+    <label>City</label>
+    <input type="text"  [formControl]="city">
+  </div>
+  <div class="form-input">
+    <label>Address1</label>
+    <input type="text"  [formControl]="address1">
+  </div>
+  <div class="form-input">
+    <label>Address1</label>
+    <input type="text"  [formControl]="address2">
+  </div>
+  <div class="form-input">
+    <label>Postal code</label>
+    <input type="text"  [formControl]="postalCode">
+  </div>
+
+  <button type="submit" [disabled]="!editEmployeeForm.valid">Save</button>
+</form>

@@ -1,0 +1,58 @@
+<h4>
+  All employees list
+</h4>
+<button (click)="addEmployee()">Add Employee</button>
+<div class="form-input">
+  <label>Search</label>
+  <input type="text" (keyup)="searchEmployee($event)" placeholder="search">
+</div>
+<table style="width:100%">
+  <tr>
+    <th (click)="sortEmployees('id')">
+      Id
+      <span *ngIf="isSorted && sortColumnName == 'id'" class="glyphicon glyphicon-triangle-top"></span>
+      <span *ngIf="!isSorted && sortColumnName == 'id'" class="glyphicon glyphicon-triangle-bottom"></span>
+    </th>
+    <th (click)="sortEmployees('name')">
+      Name
+      <span *ngIf="isSorted && sortColumnName == 'name'" class="glyphicon glyphicon-triangle-top"></span>
+      <span *ngIf="!isSorted && sortColumnName == 'name'" class="glyphicon glyphicon-triangle-bottom"></span>
+    </th>
+    <th (click)="sortEmployees('phone')">
+      Phone
+      <span *ngIf="isSorted && sortColumnName == 'phone'" class="glyphicon glyphicon-triangle-top"></span>
+      <span *ngIf="!isSorted && sortColumnName == 'phone'" class="glyphicon glyphicon-triangle-bottom"></span>
+    </th>
+    <th (click)="sortEmployees('city')">
+      City
+      <span *ngIf="isSorted && sortColumnName == 'city'" class="glyphicon glyphicon-triangle-top"></span>
+      <span *ngIf="!isSorted && sortColumnName == 'city'" class="glyphicon glyphicon-triangle-bottom"></span>
+    </th>
+    <th (click)="sortEmployees('address_line1')">
+      Address 1
+      <span *ngIf="isSorted && sortColumnName == 'address_line1'" class="glyphicon glyphicon-triangle-top"></span>
+      <span *ngIf="!isSorted && sortColumnName == 'address_line1'" class="glyphicon glyphicon-triangle-bottom"></span>
+    </th>
+    <th (click)="sortEmployees('address_line2')">
+      Address 2
+      <span *ngIf="isSorted && sortColumnName == 'address_line2'" class="glyphicon glyphicon-triangle-top"></span>
+      <span *ngIf="!isSorted && sortColumnName == 'address_line2'" class="glyphicon glyphicon-triangle-bottom"></span>
+    </th>
+    <th (click)="sortEmployees('postal_code')">
+      Postal Code
+      <span *ngIf="isSorted && sortColumnName == 'postal_code'" class="glyphicon glyphicon-triangle-top"></span>
+      <span *ngIf="!isSorted && sortColumnName == 'postal_code'" class="glyphicon glyphicon-triangle-bottom"></span>
+    </th>
+    <th>Edit</th>
+  </tr>
+  <tr *ngFor="let item of allEmployees; let index = index">
+    <td>{{item.id}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.phone}}</td>
+    <td>{{item.address.city}}</td>
+    <td>{{item.address.address_line1}}</td>
+    <td>{{item.address.address_line2}}</td>
+    <td>{{item.address.postal_code}}</td>
+    <td class="edit-btn" (click)="editEmployee(item.id)">Edit</td>
+  </tr>
+</table>
